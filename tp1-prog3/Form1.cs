@@ -10,11 +10,32 @@ using System.Windows.Forms;
 
 namespace tp1_prog3
 {
-    public partial class Form1 : Form
+    public partial class FormPrincipal : Form
     {
-        public Form1()
+        public FormPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void BtnEj1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new FormEj1().ShowDialog();
+            Show();
+        }
+
+        private void BtnEj2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new FormEj2().ShowDialog();
+            Show();
+        }
+
+        private void BtnEj3_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new FormEj3().ShowDialog();
+            Show();
         }
     }
 }
