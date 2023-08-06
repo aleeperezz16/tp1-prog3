@@ -22,6 +22,8 @@ namespace tp1_prog3
             string nombre = TbNombre.Text.Trim();
             TbNombre.Text = "";
 
+
+
             if (nombre.Length != 0)
             {
                 foreach (char c in nombre)
@@ -29,16 +31,31 @@ namespace tp1_prog3
                     if (c != ' ' && !Char.IsLetter(c))
                     {
                         MessageBox.Show("Se necesita ingresar un nombre válido", "Advertencia");
+                        TbNombre.BackColor = Color.Red;
                         return;
                     }
                 }
+                foreach (string nombreguardado in LbNombres1.Items)
+                {
+                    if (nombre.ToUpper().Equals(nombreguardado.ToUpper()))
+                    {
+                        MessageBox.Show("Se ha ingresado un nombre repetido, por favor ingrese un nombre diferente", "Advertencia");
+                        TbNombre.BackColor = Color.Red;
+                        return;
+                    }
 
+                }
                 LbNombres1.Items.Add(nombre);
+                TbNombre.BackColor = System.Drawing.SystemColors.Window;
             }
             else
             {
                 MessageBox.Show("Se necesita ingresar un nombre válido", "Advertencia");
+                TbNombre.BackColor = Color.Red;
             }
+
+ 
+
         }
     }
 }
