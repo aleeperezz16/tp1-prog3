@@ -16,5 +16,29 @@ namespace tp1_prog3
         {
             InitializeComponent();
         }
+
+        private void BtnAgregarNombre_Click(object sender, EventArgs e)
+        {
+            string nombre = TbNombre.Text.Trim();
+            TbNombre.Text = "";
+
+            if (nombre.Length != 0)
+            {
+                foreach (char c in nombre)
+                {
+                    if (c != ' ' && !Char.IsLetter(c))
+                    {
+                        MessageBox.Show("Se necesita ingresar un nombre válido", "Advertencia");
+                        return;
+                    }
+                }
+
+                LbNombres1.Items.Add(nombre);
+            }
+            else
+            {
+                MessageBox.Show("Se necesita ingresar un nombre válido", "Advertencia");
+            }
+        }
     }
 }
