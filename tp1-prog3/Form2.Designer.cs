@@ -124,7 +124,6 @@ namespace tp1_prog3
         private System.Windows.Forms.ListBox LbNombres1;
         private System.Windows.Forms.Button btnPasarItem;
         private System.Windows.Forms.ListBox LbNombres2;
-        /* private System.Windows.Forms.Button btnPasarItem;
-private System.Windows.Forms.ListBox LbNombres2;*/
+        
     }
 }
