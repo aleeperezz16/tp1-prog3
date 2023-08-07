@@ -54,8 +54,31 @@ namespace tp1_prog3
                 TbNombre.BackColor = Color.Red;
             }
 
- 
-
+        }
+        private void btnPasarItem_Click(object sender, EventArgs e)
+        {
+            if (LbNombres1.SelectedIndex >= 0)
+            {
+                string nombre = LbNombres1.SelectedItem.ToString();
+                foreach (object aux in LbNombres2.Items)
+                {
+                    string nombres = aux.ToString().Trim().ToUpper();
+                    if (nombres.Trim().ToUpper().Equals(nombres))
+                    {
+                        MessageBox.Show("No se pueden repetir los nombres", "Advertencia");
+                        LbNombres1.SelectedIndex = -1;
+                        LblIngreseNombre.Focus();
+                        return;
+                    }
+                }
+                LbNombres2.Items.Add(nombre);
+                LbNombres1.SelectedIndex = -1;
+                LblIngreseNombre.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un elemento a pasar","Advertencia");
+            }
         }
     }
 }
