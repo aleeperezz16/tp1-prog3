@@ -73,6 +73,7 @@ namespace tp1_prog3
                     }
                 }
                 LbNombres2.Items.Add(nombre);
+                LbNombres1.Items.Remove(nombre);
                 LbNombres1.SelectedIndex = -1;
                 LblIngreseNombre.Focus();
             }
@@ -82,7 +83,45 @@ namespace tp1_prog3
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (LbNombres1.Items.Count > 0)
+            {
+                bool nombreRepetido = false;
+                for (int i = 0; i < LbNombres1.Items.Count;i++)
+                {
+                    bool flag = false;
+                    string nombre = LbNombres1.Items[i].ToString().Trim().ToUpper();
+                    string s = LbNombres1.Items[i].ToString();
+                    foreach (object aux in LbNombres2.Items)
+                    {
+                        string nombres = aux.ToString().Trim().ToUpper();
+                        if (nombre.Equals(nombres))
+                        {
+                            flag = true;
+                            LbNombres1.Items.RemoveAt(i);
+                            i--;
+                            nombreRepetido = true;
+                            break;
+                        }
+                    }
 
-       
+                    if(!flag)
+                    {
+                        LbNombres2.Items.Add(s);
+                        LbNombres1.Items.RemoveAt(i);
+                        i--;
+                    }
+                }
+                if (nombreRepetido)
+                {
+                    MessageBox.Show("No ingrese nombre/s repetido/s , fueron removido/s", "Advertencia");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay ningun elemento a pasar", "Advertencia");
+            }
+        }
     }
 }

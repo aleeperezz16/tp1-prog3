@@ -35,6 +35,7 @@ namespace tp1_prog3
             this.LbNombres1 = new System.Windows.Forms.ListBox();
             this.btnPasarItem = new System.Windows.Forms.Button();
             this.LbNombres2 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblIngreseNombre
@@ -51,7 +52,7 @@ namespace tp1_prog3
             // TbNombre
             // 
             this.TbNombre.Location = new System.Drawing.Point(261, 58);
-            this.TbNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TbNombre.Margin = new System.Windows.Forms.Padding(4);
             this.TbNombre.Name = "TbNombre";
             this.TbNombre.Size = new System.Drawing.Size(284, 22);
             this.TbNombre.TabIndex = 1;
@@ -60,7 +61,7 @@ namespace tp1_prog3
             // 
             this.BtnAgregarNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregarNombre.Location = new System.Drawing.Point(596, 47);
-            this.BtnAgregarNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnAgregarNombre.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAgregarNombre.Name = "BtnAgregarNombre";
             this.BtnAgregarNombre.Size = new System.Drawing.Size(128, 46);
             this.BtnAgregarNombre.TabIndex = 2;
@@ -73,7 +74,7 @@ namespace tp1_prog3
             this.LbNombres1.FormattingEnabled = true;
             this.LbNombres1.ItemHeight = 16;
             this.LbNombres1.Location = new System.Drawing.Point(53, 151);
-            this.LbNombres1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LbNombres1.Margin = new System.Windows.Forms.Padding(4);
             this.LbNombres1.Name = "LbNombres1";
             this.LbNombres1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.LbNombres1.Size = new System.Drawing.Size(232, 340);
@@ -98,18 +99,29 @@ namespace tp1_prog3
             this.LbNombres2.Size = new System.Drawing.Size(232, 340);
             this.LbNombres2.TabIndex = 5;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(355, 288);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = ">>";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormEj1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 554);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.LbNombres2);
             this.Controls.Add(this.btnPasarItem);
             this.Controls.Add(this.LbNombres1);
             this.Controls.Add(this.BtnAgregarNombre);
             this.Controls.Add(this.TbNombre);
             this.Controls.Add(this.LblIngreseNombre);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormEj1";
             this.Text = "Nombres";
             this.ResumeLayout(false);
@@ -124,6 +136,6 @@ namespace tp1_prog3
         private System.Windows.Forms.ListBox LbNombres1;
         private System.Windows.Forms.Button btnPasarItem;
         private System.Windows.Forms.ListBox LbNombres2;
-        
+        private System.Windows.Forms.Button button1;
     }
 }
