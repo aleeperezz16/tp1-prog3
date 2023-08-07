@@ -63,7 +63,7 @@ namespace tp1_prog3
                 foreach (object aux in LbNombres2.Items)
                 {
                     string nombres = aux.ToString().Trim().ToUpper();
-                    if (nombres.Trim().ToUpper().Equals(nombres))
+                    if (nombre.Trim().ToUpper().Equals(nombres))
                     {
                         MessageBox.Show("No se pueden repetir los nombres", "Advertencia");
                         LbNombres1.SelectedIndex = -1;
