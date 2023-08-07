@@ -85,7 +85,26 @@ namespace tp1_prog3
             this.Text = "Nombres";
             this.ResumeLayout(false);
             this.PerformLayout();
-
+             // 
+            // btnPasarItem
+            // 
+            this.btnPasarItem.Location = new System.Drawing.Point(341, 239);
+            this.btnPasarItem.Name = "btnPasarItem";
+            this.btnPasarItem.Size = new System.Drawing.Size(87, 37);
+            this.btnPasarItem.TabIndex = 4;
+            this.btnPasarItem.Text = ">";
+            this.btnPasarItem.UseVisualStyleBackColor = true;
+            this.btnPasarItem.Click += new System.EventHandler(this.btnPasarItem_Click);
+             // 
+            // LbNombres2
+            // 
+            this.LbNombres2.FormattingEnabled = true;
+            this.LbNombres2.ItemHeight = 16;
+            this.LbNombres2.Location = new System.Drawing.Point(492, 157);
+            this.LbNombres2.Name = "LbNombres2";
+            this.LbNombres2.Size = new System.Drawing.Size(232, 340);
+            this.LbNombres2.TabIndex = 5;
+            // 
         }
 
         #endregion
@@ -94,5 +113,7 @@ namespace tp1_prog3
         private System.Windows.Forms.TextBox TbNombre;
         private System.Windows.Forms.Button BtnAgregarNombre;
         private System.Windows.Forms.ListBox LbNombres1;
+        private System.Windows.Forms.Button btnPasarItem;
+        private System.Windows.Forms.ListBox LbNombres2;
     }
 }
