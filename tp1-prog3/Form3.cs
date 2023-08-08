@@ -27,6 +27,33 @@ namespace tp1_prog3
 
             TbNombre.Focus();
 
+            //Validacion del nombre para que no tenga numeros
+            foreach(char c in nombre)
+            {
+                for(int i = 0; i < 10; i++)
+                {
+                    char c1 = (char) (48+i);
+                    if (c.Equals(c1)){
+                        MessageBox.Show("No ingrese numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
+            //Validacion del Apellido para que no tenga numeros
+            foreach (char c in apellido)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    char c1 = (char)(48 + i);
+                    if (c.Equals(c1))
+                    {
+                        MessageBox.Show("No ingrese numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
             if (nombre.Length > 0 && apellido.Length > 0)
             {
                 string nombreCompleto = nombre + ' ' + apellido;
@@ -55,8 +82,9 @@ namespace tp1_prog3
             if (nombreape != null)
             {
                 int indice = LbNombreApellido.SelectedIndex;
-                MessageBox.Show("Se ha eliminado a " + LbNombreApellido.SelectedItem.ToString() + " correctamente", "Mensaje");
+                string s = LbNombreApellido.Items[indice].ToString();
                 LbNombreApellido.Items.RemoveAt(indice);
+                MessageBox.Show("Se ha eliminado a " + s + " correctamente", "Mensaje");
             }
             else
             {
