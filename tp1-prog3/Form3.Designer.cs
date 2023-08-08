@@ -129,6 +129,7 @@ namespace tp1_prog3
             // lbNombreApellido
             // 
             this.lbNombreApellido.FormattingEnabled = true;
+            this.lbNombreApellido.ItemHeight = 16;
             this.lbNombreApellido.Location = new System.Drawing.Point(36, 34);
             this.lbNombreApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lbNombreApellido.Name = "lbNombreApellido";
