@@ -88,7 +88,7 @@ namespace tp1_prog3
             this.btnPasarItem.TabIndex = 4;
             this.btnPasarItem.Text = ">";
             this.btnPasarItem.UseVisualStyleBackColor = true;
-            this.btnPasarItem.Click += new System.EventHandler(this.btnPasarItem_Click);
+            this.btnPasarItem.Click += new System.EventHandler(this.BtnPasarItem_Click);
             // 
             // LbNombres2
             // 
@@ -107,7 +107,7 @@ namespace tp1_prog3
             this.button1.TabIndex = 6;
             this.button1.Text = ">>";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.BtnPasarTodo_Click);
             // 
             // FormEj1
             // 

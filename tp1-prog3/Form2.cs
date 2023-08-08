@@ -22,106 +22,80 @@ namespace tp1_prog3
             string nombre = TbNombre.Text.Trim();
             TbNombre.Text = "";
 
+            TbNombre.Focus();
 
-
-            if (nombre.Length != 0)
+            if (nombre.Length > 0)
             {
                 foreach (char c in nombre)
                 {
                     if (c != ' ' && !Char.IsLetter(c))
                     {
-                        MessageBox.Show("Se necesita ingresar un nombre válido", "Advertencia");
-                        TbNombre.BackColor = Color.Red;
+                        MessageBox.Show("Se necesita ingresar un nombre válido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
-                foreach (string nombreguardado in LbNombres1.Items)
+
+                foreach (string nombreGuardado in LbNombres1.Items)
                 {
-                    if (nombre.ToUpper().Equals(nombreguardado.ToUpper()))
+                    if (nombre.ToUpper().Equals(nombreGuardado.ToUpper()))
                     {
-                        MessageBox.Show("Se ha ingresado un nombre repetido, por favor ingrese un nombre diferente", "Advertencia");
-                        TbNombre.BackColor = Color.Red;
+                        MessageBox.Show("El nombre ingresado ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
                 }
+
+                foreach (string nombreGuardado in LbNombres2.Items)
+                {
+                    if (nombre.ToUpper().Equals(nombreGuardado.ToUpper()))
+                    {
+                        MessageBox.Show("El nombre ingresado ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                }
+
                 LbNombres1.Items.Add(nombre);
-                TbNombre.BackColor = System.Drawing.SystemColors.Window;
             }
             else
             {
-                MessageBox.Show("Se necesita ingresar un nombre válido", "Advertencia");
-                TbNombre.BackColor = Color.Red;
+                MessageBox.Show("Se necesita ingresar un nombre válido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
 
-        private void btnPasarItem_Click(object sender, EventArgs e)
+        private void BtnPasarItem_Click(object sender, EventArgs e)
         {
             if (LbNombres1.SelectedIndex >= 0)
             {
                 string nombre = LbNombres1.SelectedItem.ToString();
-                foreach (object aux in LbNombres2.Items)
-                {
-                    string nombres = aux.ToString().Trim().ToUpper();
-                    if (nombre.Trim().ToUpper().Equals(nombres))
-                    {
-                        MessageBox.Show("No se pueden repetir los nombres", "Advertencia");
-                        LbNombres1.SelectedIndex = -1;
-                        LblIngreseNombre.Focus();
-                        return;
-                    }
-                }
+
                 LbNombres2.Items.Add(nombre);
                 LbNombres1.Items.Remove(nombre);
+
                 LbNombres1.SelectedIndex = -1;
-                LblIngreseNombre.Focus();
             }
             else
             {
-                MessageBox.Show("Seleccione un elemento a pasar", "Advertencia");
+                MessageBox.Show("Seleccione un elemento a pasar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            TbNombre.Focus();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnPasarTodo_Click(object sender, EventArgs e)
         {
             if (LbNombres1.Items.Count > 0)
             {
-                bool nombreRepetido = false;
-                for (int i = 0; i < LbNombres1.Items.Count;i++)
-                {
-                    bool flag = false;
-                    string nombre = LbNombres1.Items[i].ToString().Trim().ToUpper();
-                    string s = LbNombres1.Items[i].ToString();
-                    foreach (object aux in LbNombres2.Items)
-                    {
-                        string nombres = aux.ToString().Trim().ToUpper();
-                        if (nombre.Equals(nombres))
-                        {
-                            flag = true;
-                            LbNombres1.Items.RemoveAt(i);
-                            i--;
-                            nombreRepetido = true;
-                            break;
-                        }
-                    }
-
-                    if(!flag)
-                    {
-                        LbNombres2.Items.Add(s);
-                        LbNombres1.Items.RemoveAt(i);
-                        i--;
-                    }
-                }
-                if (nombreRepetido)
-                {
-                    MessageBox.Show("No ingrese nombre/s repetido/s , fueron removido/s", "Advertencia");
-                }
+                LbNombres2.Items.AddRange(LbNombres1.Items);
+                LbNombres1.Items.Clear();
             }
             else
             {
-                MessageBox.Show("No hay ningun elemento a pasar", "Advertencia");
+                MessageBox.Show("No hay ningun elemento a pasar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            TbNombre.Focus();
         }
     }
 }

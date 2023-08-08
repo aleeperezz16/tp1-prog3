@@ -17,38 +17,53 @@ namespace tp1_prog3
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnAgregar_Click(object sender, EventArgs e)
         {
+            string nombre = TbNombre.Text.Trim();
+            string apellido = TbApellido.Text.Trim();
 
-            if ((txtApellido.Text.Trim().Length > 0) && (txtNombre.Text.Trim().Length > 0)) {
-                lbNombreApellido.Items.Add(txtNombre.Text + " " + txtApellido.Text);
-                txtApellido.Text = "";
-                txtNombre.Text = "";
-             }
+            TbApellido.Text = "";
+            TbNombre.Text = "";
+
+            TbNombre.Focus();
+
+            if (nombre.Length > 0 && apellido.Length > 0)
+            {
+                string nombreCompleto = nombre + ' ' + apellido;
+                
+                foreach (string elem in LbNombreApellido.Items)
+                {
+                    if (elem.ToLower().Equals(nombreCompleto.ToLower()))
+                    {
+                        MessageBox.Show("El nombre ingresado ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                LbNombreApellido.Items.Add(nombreCompleto);
+            }
             else
             {
-                MessageBox.Show("Debe incluirse tanto nombre como apellido", "ATENCION");
+                MessageBox.Show("Debe incluirse tanto nombre como apellido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        private void btnBorrar_Click(object sender, EventArgs e)
+        private void BtnBorrar_Click(object sender, EventArgs e)
         {
-            object nombreape = lbNombreApellido.SelectedItem;
+            object nombreape = LbNombreApellido.SelectedItem;
             
-            if(nombreape != null)
+            if (nombreape != null)
             {
-                int indice = lbNombreApellido.SelectedIndex;
-                MessageBox.Show("Se ha eliminado a "+ lbNombreApellido.SelectedItem.ToString() + " correctamente", "Mensaje");
-                lbNombreApellido.Items.RemoveAt(indice);
-                txtNombre.Focus();
+                int indice = LbNombreApellido.SelectedIndex;
+                MessageBox.Show("Se ha eliminado a " + LbNombreApellido.SelectedItem.ToString() + " correctamente", "Mensaje");
+                LbNombreApellido.Items.RemoveAt(indice);
             }
             else
             {
-                MessageBox.Show("Debe Seleccionar un elemento para borrarlo.", "ATENCION");
-                txtNombre.Focus();
+                MessageBox.Show("Debe seleccionar un elemento para borrarlo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
+            TbNombre.Focus();
         }
-
-
     }
 }
