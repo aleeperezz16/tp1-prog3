@@ -30,5 +30,25 @@ namespace tp1_prog3
                 MessageBox.Show("Debe incluirse tanto nombre como apellido", "ATENCION");
             }
         }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            object nombreape = lbNombreApellido.SelectedItem;
+            
+            if(nombreape != null)
+            {
+                int indice = lbNombreApellido.SelectedIndex;
+                MessageBox.Show("Se ha eliminado a "+ lbNombreApellido.SelectedItem.ToString() + " correctamente", "Mensaje");
+                lbNombreApellido.Items.RemoveAt(indice);
+                txtNombre.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar un elemento para borrarlo.", "ATENCION");
+                txtNombre.Focus();
+            }
+        }
+
+
     }
 }
