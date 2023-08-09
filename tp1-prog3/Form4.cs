@@ -15,6 +15,19 @@ namespace tp1_prog3
         public FormEj3()
         {
             InitializeComponent();
+            rdBtnFemenino.Checked = true;
+            rdBtnCasado.Checked = true;
+        }
+
+        private void BtnMostrar_Click(object sender, EventArgs e)
+        {
+           
+            string salida;
+            salida="Usted seleccionó los siguientes elementos: "+"\r\n"; 
+            salida += "Sexo: " + (string)(rdBtnFemenino.Checked ? "Femenino" : "Masculino") + "\r\n";
+            salida += "Estado Civil: " + (string)(rdBtnCasado.Checked ? "Casado" : "Soltero") + "\r\n";
+
+            LblMostrar.Text = salida;
         }
     }
 }
