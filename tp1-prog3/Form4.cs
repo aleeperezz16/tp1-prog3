@@ -21,11 +21,19 @@ namespace tp1_prog3
 
         private void BtnMostrar_Click(object sender, EventArgs e)
         {
-           
+           //Sexo+Estado
             string salida;
             salida="Usted seleccionó los siguientes elementos: "+"\r\n"; 
             salida += "Sexo: " + (string)(rdBtnFemenino.Checked ? "Femenino" : "Masculino") + "\r\n";
             salida += "Estado Civil: " + (string)(rdBtnCasado.Checked ? "Casado" : "Soltero") + "\r\n";
+            //Ocupacion
+            salida += "Oficio:" + "\r\n";
+            foreach(string item in clbOficios.CheckedItems)
+            {
+                salida += "- " + item.ToString()+ "\r\n";
+            }
+
+
 
             LblMostrar.Text = salida;
         }
